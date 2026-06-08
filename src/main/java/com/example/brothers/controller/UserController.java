@@ -1,27 +1,15 @@
 package com.example.brothers.Controller;
 
-import com.example.brothers.Entity.User;
-import com.example.brothers.Service.UserService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/users")
-@RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
-
-    // REGISTER
-    @PostMapping("/register")
-    public User register(@RequestBody User user) {
-        return userService.register(user);
-    }
-
-    // LOGIN
-    @PostMapping("/login")
-    public User login(@RequestParam String email,
-                      @RequestParam String password) {
-        return userService.login(email, password);
+    @GetMapping
+    public String testUsers() {
+        return "Users API is working";
     }
 }
