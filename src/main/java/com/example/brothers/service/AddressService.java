@@ -1,13 +1,13 @@
 package com.example.brothers.Service;
 
 import com.example.brothers.Entity.Address;
+
 import java.util.List;
 
 public interface AddressService {
 
     Address addAddress(Address address);
 
-    List<Address> getUserAddresses(Long userId);
+    List<Address> getAllAddresses();
 
-    Address getDefaultAddress(Long userId);
 }

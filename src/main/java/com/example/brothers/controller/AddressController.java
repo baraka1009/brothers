@@ -4,6 +4,7 @@ import com.example.brothers.Entity.Address;
 import com.example.brothers.Service.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -13,21 +14,13 @@ public class AddressController {
 
     private final AddressService addressService;
 
-    // ADD ADDRESS
     @PostMapping
-    public Address add(@RequestBody Address address) {
+    public Address addAddress(@RequestBody Address address) {
         return addressService.addAddress(address);
     }
 
-    // GET USER ADDRESSES
-    @GetMapping("/user/{userId}")
-    public List<Address> getUserAddresses(@PathVariable Long userId) {
-        return addressService.getUserAddresses(userId);
-    }
-
-    // GET DEFAULT ADDRESS
-    @GetMapping("/user/{userId}/default")
-    public Address getDefault(@PathVariable Long userId) {
-        return addressService.getDefaultAddress(userId);
+    @GetMapping
+    public List<Address> getAllAddresses() {
+        return addressService.getAllAddresses();
     }
 }
